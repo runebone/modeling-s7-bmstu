@@ -1,0 +1,157 @@
+\documentclass[a4paper,oneside,14pt]{extarticle}
+
+\include{preamble}
+
+\begin{document}
+
+\include{title}
+\setcounter{page}{2}
+%\renewcommand{\contentsname}{СОДЕРЖАНИЕ}
+%\tableofcontents
+
+\section{Теоретическая часть}
+
+\subsection{Равномерное распределение}
+
+Случайная величина имеет равномерное распределение на отрезке $[a, b]$, если ее функция плотности распределения вероятностей
+\[
+f(x) =
+\begin{cases}
+    \begin{array}{c l}
+        \dfrac{1}{b - a}, & a \leq x \leq b; \\
+        0, & x < a \text{ или } x > b.
+    \end{array}
+\end{cases}
+\]
+
+Ее функция распределения в этом случае определяется выражением
+\[
+F(x) =
+\begin{cases}
+    \begin{array}{c l}
+    0, & x < a; \\
+    \dfrac{x - a}{b - a}, & a \leq x \leq b; \\
+    1, & x > b.
+    \end{array}
+\end{cases}
+\]
+
+\subsection{Нормальное распределение}
+
+Случайная величина имеет нормальное распределение, если ее функция плотности распределения вероятностей 
+\[
+    f(x) = \dfrac{1}{\sigma\sqrt{2\pi}}e^{\displaystyle -\frac{(x-m)^2}{2\sigma^2}} \hspace{0.5cm} (m \in \mathbb{R},\ \sigma > 0).
+\]
+
+Функция нормального распределения имеет вид
+\[
+    F(x) = \dfrac{1}{\sigma\sqrt{2\pi}} \int\displaylimits_{-\infty}^{x} e^{\displaystyle -\frac{(x - m)^2}{2\sigma^2}} dx.
+\]
+
+\subsection{Распределение Пуассона}
+
+Дискретная случайная величина $X$ распределена по закону Пуассона, если она принимает целые неотрицательные значения с вероятностями
+\[
+    \mathrm{P}\{X = i\} = P(i;\, \lambda) = \dfrac{\lambda^i}{i!} e^{\displaystyle -\lambda}, \hspace{1cm} i = 0, 1, \dots
+\]
+
+Ее функция распределения
+\[
+    F(k;\, \lambda) = \mathrm{P}\{X \leq k\} = \sum\displaylimits_{i = 0}^k P(i;\, \lambda) = e^{\displaystyle -\lambda} \sum\displaylimits_{i = 0}^k \dfrac{\lambda^i}{i!}.
+\]
+
+\subsection{Распределение Эрланга}
+
+Распределение Эрланга --- частный случай Гамма распределения, когда параметр $k$ является целым числом.
+
+Случайная величина имеет Эрланговское распределение, если ее функция плотности распределения вероятностей 
+\[
+    f(x) =
+    \begin{cases}
+        \begin{array}{c l}
+            x^{k-1}\dfrac{e^{-x/\theta}}{\theta^k \,(k-1)!}, & x \geq 0; \\
+            0, & x < 0.
+        \end{array}
+    \end{cases}
+\]
+
+Функция распределения Эрланга
+\[
+    F(x; k, \theta) =
+    \begin{cases}
+        \begin{array}{c l}
+            1 - e^{-x/\theta} \displaystyle \sum\displaylimits_{i = 0}^{k - 1} \dfrac{x^i}{\theta^i \,i!}, & x \geq 0; \\
+            0, & x < 0.
+        \end{array}
+    \end{cases}
+\]
+
+\newpage
+
+\section{Практическая часть}
+
+\subsection{Равномерное распределение}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{img/th_regular.pdf}
+	\caption{Равномерное распределение --- функция распределения и функция плотности распределения вероятностей}
+	\label{fig:}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{img/emp_regular.pdf}
+	\caption{Равномерное распределение --- эмпирическая функция распределения и гистограмма}
+	\label{fig:}
+\end{figure}
+
+\subsection{Нормальное распределение}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{img/th_normal.pdf}
+	\caption{Нормальное распределение --- функция распределения и функция плотности распределения вероятностей}
+	\label{fig:}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{img/emp_normal.pdf}
+	\caption{Нормальное распределение --- эмпирическая функция распределения и гистограмма}
+	\label{fig:}
+\end{figure}
+
+\subsection{Распределение Пуассона}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{img/th_poisson.pdf}
+	\caption{Пуассоновское распределение --- функция распределения и функция плотности распределения вероятностей}
+	\label{fig:}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{img/emp_poisson.pdf}
+	\caption{Пуассоновское распределение --- эмпирическая функция распределения и гистограмма}
+	\label{fig:}
+\end{figure}
+
+\subsection{Распределение Эрланга}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{img/th_erlang.pdf}
+	\caption{Эрланговское распределение --- функция распределения и функция плотности распределения вероятностей}
+	\label{fig:}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{img/emp_erlang.pdf}
+	\caption{Эрланговское распределение --- эмпирическая функция распределения и гистограмма}
+	\label{fig:}
+\end{figure}
+
+\end{document}
